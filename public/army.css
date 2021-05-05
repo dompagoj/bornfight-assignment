@@ -1,0 +1,19 @@
+.stats_wrapper {
+  padding: 10px 0;
+}
+
+.army_name {
+  font-size: 24px;
+}
+
+.army_stats {
+  padding: 5px 15px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.unit_wrapper {
+  border-bottom: 1px solid lightgray;
+}

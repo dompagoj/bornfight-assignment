@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bornfight assignment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="army.css" />
+</head>
+
+<body>
+  <h2>Winner: {{ winner }}</h2>
+
+  <div class="stats_wrapper">
+    <span class="army_name">Army 1 stats</span>
+    {{#with army1Stats}}
+
+    <div class="army_stats">
+      <div>Name: {{ name }}</div>
+      <div>Total health: {{ totalHealth }}</div>
+      <div>Total damage: {{ totalDamage }}</div>
+
+      <div>Units: </div>
+      <div class="army_stats">
+        {{#each units}}
+        <div class="army_stats">
+          <div>Name: {{ name }}</div>
+          <div>Count: {{ count }}</div>
+          <div>Damage: {{ damage }}</div>
+          <div>Health: {{ health }}</div>
+        </div>
+        {{/each}}
+      </div>
+
+      <div>Modifiers: </div>
+      {{#if modifiers.length}}
+      <div class="army_stats">
+        {{#each modifiers}}
+        <div class="army_stats">
+          <div>Name: {{ name }}</div>
+          <div>Description: {{ modifierDescription }}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{else}}
+      <div class="army_stats bold">None</div>
+      {{/if}}
+
+
+    </div>
+
+    {{/with}}
+  </div>
+
+
+  <div class="stats_wrapper">
+    <span class="army_name">Army 2 stats</span>
+    {{#with army2Stats}}
+
+    <div class="army_stats">
+      <div>Name: {{ name }}</div>
+      <div>Total health: {{ totalHealth }}</div>
+      <div>Total damage: {{ totalDamage }}</div>
+
+      <div>Units: </div>
+      <div class="army_stats">
+        {{#each units}}
+        <div class="army_stats">
+          <div>Name: {{ name }}</div>
+          <div>Count: {{ count }}</div>
+          <div>Damage: {{ damage }}</div>
+          <div>Health: {{ health }}</div>
+        </div>
+        {{/each}}
+      </div>
+
+      <div>Modifiers: </div>
+      {{#if modifiers.length}}
+      <div class="army_stats">
+        {{#each modifiers}}
+        <div class="army_stats">
+          <div>Name: {{ name }}</div>
+          <div>Description: {{ modifierDescription }}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{else}}
+      <div class="army_stats bold">None</div>
+      {{/if}}
+
+
+    </div>
+
+    {{/with}}
+  </div>
+
+</body>
+
+</html>
