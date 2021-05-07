@@ -41,15 +41,15 @@ export class ArmyService {
       let army1Health = army1Stats.totalHealth
       let army2Health = army2Stats.totalHealth
 
-      while (army1Health > 0 || army2Health > 0) {
+      while (army1Health > 0 && army2Health > 0) {
         army2Health -= army1Stats.totalDamage
 
-        if (army2Health <= 0) break
+        if (army2Health <= 0) return army1
 
         army1Health -= army2Stats.totalDamage
       }
 
-      return army1Health > 0 ? army1 : army2
+      return army2
     })()
 
     this._logger.debug(`Winner : ${winner.name}`)

@@ -16,10 +16,11 @@ export function isUnitModifier(unit: IArmyUnit): boolean {
   return !!unitAsModififer(unit).apply
 }
 
-class BaseUnit {
+class BaseUnit implements IArmyUnit {
   name = 'Unnamed Army unit'
-
-  constructor(public count: number = 0) {}
+  health = 0
+  damage = 0
+  count = 0
 
   public withCount(count: number): this {
     this.count = count
@@ -28,13 +29,13 @@ class BaseUnit {
   }
 }
 
-class Villager extends BaseUnit implements IArmyUnit {
+class Villager extends BaseUnit {
   name = 'Villager'
   health = 25
   damage = 5
 }
 
-class General extends BaseUnit implements IArmyUnit, IArmyModifier {
+class General extends BaseUnit implements IArmyModifier {
   name = 'General'
   health = 90 // Buffs itself
   damage = 15
@@ -52,7 +53,7 @@ class General extends BaseUnit implements IArmyUnit, IArmyModifier {
   }
 }
 
-class Dragon extends BaseUnit implements IArmyUnit {
+class Dragon extends BaseUnit {
   name = 'Dragon'
   health = 2500
   damage = 250

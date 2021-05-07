@@ -48,6 +48,22 @@ describe('ArmyService', () => {
       expect(winner).toEqual('Army 2')
     })
 
+    it('If its a tie, army 1 wins', () => {
+      const army1 = new ArmyBuilder()
+        .withName('Army 1')
+        .withUnit(new ArmyUnits.Villager().withCount(25))
+        .build()
+
+      const army2 = new ArmyBuilder()
+        .withName('Army 2')
+        .withUnit(new ArmyUnits.Villager().withCount(25))
+        .build()
+
+      const { winner } = armyService.resolveBattle(army1, army2)
+
+      expect(winner).toEqual('Army 1')
+    })
+
     it('Army 1 should win (Dragon)', () => {
       const army1 = new ArmyBuilder()
         .withName('Army 1')
